@@ -1,0 +1,21 @@
+dist
+node_modules
+.DS_Store
+*.log
+*.tmp
+*.local
+
+# Local test/debug artifacts
+.playwright-cli/
+output/
+.tmp-*
+tmp_*
+preview-*.err.log
+preview-*.out.log
+dev*.log
+python-server*.log
+
+# Local harness files
+AGENTS.md
+.codex/
+.local-harness/

@@ -1,0 +1,27 @@
+.preview-viewport--reservoir-foundations,
+.preview-viewport--temporal-reservoir,
+.preview-viewport--spatial-reservoir,
+.preview-viewport--restir-di,
+.preview-viewport--restir-stabilization {
+  min-height: 960px;
+}
+
+@media (max-width: 1280px) {
+  .preview-viewport--reservoir-foundations,
+  .preview-viewport--temporal-reservoir,
+  .preview-viewport--spatial-reservoir,
+  .preview-viewport--restir-di,
+  .preview-viewport--restir-stabilization {
+    min-height: 1020px;
+  }
+}
+
+@media (max-width: 980px) {
+  .preview-viewport--reservoir-foundations,
+  .preview-viewport--temporal-reservoir,
+  .preview-viewport--spatial-reservoir,
+  .preview-viewport--restir-di,
+  .preview-viewport--restir-stabilization {
+    min-height: 1140px;
+  }
+}

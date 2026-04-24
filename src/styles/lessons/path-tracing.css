@@ -1,0 +1,250 @@
+.preview-viewport--blue-noise,
+.preview-viewport--monte-carlo,
+.preview-viewport--importance-sampling,
+.preview-viewport--path-tracing,
+.preview-viewport--progressive-accumulation {
+  min-height: 920px;
+}
+
+.path-trace-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.path-trace-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.path-trace-badge,
+.path-trace-control,
+.path-trace-label,
+.path-trace-card,
+.path-trace-legend {
+  border: 1px solid var(--line);
+  background: rgba(6, 17, 33, 0.78);
+  border-radius: 22px;
+}
+
+.path-trace-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 15px;
+  color: #dbe8ff;
+  font-size: 0.83rem;
+  letter-spacing: 0.03em;
+}
+
+.path-trace-badge--warm {
+  border-color: rgba(255, 182, 119, 0.28);
+}
+
+.path-trace-badge--cool {
+  border-color: rgba(128, 221, 190, 0.28);
+}
+
+.path-trace-controls,
+.path-trace-labels,
+.path-trace-card-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.path-trace-controls {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.path-trace-control {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px 15px;
+}
+
+.path-trace-control span,
+.path-trace-label span,
+.path-trace-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.path-trace-control strong,
+.path-trace-label strong,
+.path-trace-card strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.path-trace-control strong {
+  font-size: 1.18rem;
+}
+
+.path-trace-control input[type="range"] {
+  width: 100%;
+}
+
+.path-trace-control--toggle {
+  align-content: start;
+}
+
+.path-trace-toggle-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.path-trace-toggle {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c6d7f5;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.path-trace-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(109, 205, 255, 0.28);
+}
+
+.path-trace-toggle--active {
+  background: rgba(95, 200, 255, 0.12);
+  border-color: rgba(95, 200, 255, 0.34);
+  color: #d7f0ff;
+}
+
+.path-trace-labels--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.path-trace-labels--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.path-trace-label {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px 16px;
+}
+
+.path-trace-label strong {
+  font-size: clamp(1.1rem, 1.7vw, 1.38rem);
+}
+
+.path-trace-label .eyebrow {
+  margin-bottom: 2px;
+}
+
+.path-trace-label--cool {
+  border-color: rgba(128, 221, 190, 0.22);
+}
+
+.path-trace-frame {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: clamp(260px, 34vh, 400px);
+  background:
+    radial-gradient(circle at top, rgba(122, 181, 255, 0.08), transparent 56%),
+    linear-gradient(180deg, rgba(9, 18, 31, 0.98), rgba(5, 12, 23, 0.98));
+  flex: 1;
+  aspect-ratio: 16 / 9;
+}
+
+.path-trace-frame--wide {
+  aspect-ratio: 2.08 / 1;
+  min-height: clamp(220px, 30vh, 340px);
+}
+
+.path-trace-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.path-trace-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.path-trace-card {
+  padding: 14px 16px 16px;
+}
+
+.path-trace-card strong {
+  display: block;
+  font-size: clamp(1rem, 1.7vw, 1.24rem);
+  line-height: 1.55;
+}
+
+.path-trace-legend {
+  padding: 16px 18px;
+  color: #dbe8ff;
+  line-height: 1.7;
+}
+
+.path-trace-legend strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+@media (max-width: 1280px) {
+  .preview-viewport--blue-noise,
+  .preview-viewport--monte-carlo,
+  .preview-viewport--importance-sampling,
+  .preview-viewport--path-tracing,
+  .preview-viewport--progressive-accumulation {
+    min-height: 980px;
+  }
+
+  .path-trace-labels--three {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .preview-viewport--blue-noise,
+  .preview-viewport--monte-carlo,
+  .preview-viewport--importance-sampling,
+  .preview-viewport--path-tracing,
+  .preview-viewport--progressive-accumulation {
+    min-height: 1080px;
+  }
+
+  .path-trace-controls,
+  .path-trace-labels--two {
+    grid-template-columns: 1fr;
+  }
+
+  .path-trace-frame {
+    aspect-ratio: 1.2 / 1;
+  }
+
+  .path-trace-frame--wide {
+    aspect-ratio: 1.05 / 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .preview-viewport--blue-noise,
+  .preview-viewport--monte-carlo,
+  .preview-viewport--importance-sampling,
+  .preview-viewport--path-tracing,
+  .preview-viewport--progressive-accumulation {
+    min-height: 1180px;
+  }
+
+  .path-trace-toggle-row {
+    grid-template-columns: 1fr;
+  }
+}

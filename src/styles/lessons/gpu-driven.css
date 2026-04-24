@@ -1,0 +1,252 @@
+.preview-viewport--gpu-driven-frustum,
+.preview-viewport--gpu-driven-flags,
+.preview-viewport--gpu-driven-visible-list,
+.preview-viewport--gpu-driven-hiz,
+.preview-viewport--gpu-driven-lod {
+  min-height: 940px;
+}
+
+.gpu-driven-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.gpu-driven-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gpu-driven-badge,
+.gpu-driven-control,
+.gpu-driven-label,
+.gpu-driven-card,
+.gpu-driven-legend {
+  border: 1px solid var(--line);
+  background: rgba(6, 17, 33, 0.78);
+  border-radius: 22px;
+}
+
+.gpu-driven-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 15px;
+  color: #dbe8ff;
+  font-size: 0.83rem;
+  letter-spacing: 0.03em;
+}
+
+.gpu-driven-badge--warm {
+  border-color: rgba(255, 178, 92, 0.28);
+}
+
+.gpu-driven-badge--cool {
+  border-color: rgba(128, 221, 190, 0.28);
+}
+
+.gpu-driven-controls,
+.gpu-driven-labels,
+.gpu-driven-card-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.gpu-driven-controls {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gpu-driven-control {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px 15px;
+}
+
+.gpu-driven-control span,
+.gpu-driven-card p,
+.gpu-driven-label span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.gpu-driven-control strong,
+.gpu-driven-card strong,
+.gpu-driven-label strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.gpu-driven-control strong {
+  font-size: 1.28rem;
+}
+
+.gpu-driven-control input[type="range"] {
+  width: 100%;
+}
+
+.gpu-driven-control--metric small,
+.gpu-driven-control--toggle small {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.gpu-driven-control--toggle {
+  align-content: start;
+}
+
+.gpu-driven-toggle-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gpu-driven-toggle {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c6d7f5;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.gpu-driven-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(109, 205, 255, 0.28);
+}
+
+.gpu-driven-toggle--active {
+  background: rgba(95, 200, 255, 0.12);
+  border-color: rgba(95, 200, 255, 0.34);
+  color: #d7f0ff;
+}
+
+.gpu-driven-labels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gpu-driven-label {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px 16px;
+}
+
+.gpu-driven-label strong {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+}
+
+.gpu-driven-label .eyebrow {
+  margin-bottom: 2px;
+}
+
+.gpu-driven-label--cool {
+  border-color: rgba(128, 221, 190, 0.22);
+}
+
+.gpu-driven-frame {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: clamp(260px, 34vh, 400px);
+  background:
+    radial-gradient(circle at top, rgba(122, 181, 255, 0.08), transparent 56%),
+    linear-gradient(180deg, rgba(9, 18, 31, 0.98), rgba(5, 12, 23, 0.98));
+  flex: 1;
+  aspect-ratio: 16 / 9;
+}
+
+.gpu-driven-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gpu-driven-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.gpu-driven-card {
+  padding: 14px 16px 16px;
+}
+
+.gpu-driven-card strong {
+  display: block;
+  font-size: clamp(1rem, 1.7vw, 1.32rem);
+  line-height: 1.55;
+}
+
+.gpu-driven-card p {
+  margin: 0 0 10px;
+}
+
+.gpu-driven-legend {
+  padding: 16px 18px;
+  color: #dbe8ff;
+  line-height: 1.7;
+}
+
+.gpu-driven-legend strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+@media (max-width: 1280px) {
+  .preview-viewport--gpu-driven-frustum,
+  .preview-viewport--gpu-driven-flags,
+  .preview-viewport--gpu-driven-visible-list,
+  .preview-viewport--gpu-driven-hiz,
+  .preview-viewport--gpu-driven-lod {
+    min-height: 1000px;
+  }
+
+  .gpu-driven-controls,
+  .gpu-driven-labels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .preview-viewport--gpu-driven-frustum,
+  .preview-viewport--gpu-driven-flags,
+  .preview-viewport--gpu-driven-visible-list,
+  .preview-viewport--gpu-driven-hiz,
+  .preview-viewport--gpu-driven-lod {
+    min-height: 1100px;
+  }
+
+  .gpu-driven-frame {
+    aspect-ratio: 1.22 / 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .preview-viewport--gpu-driven-frustum,
+  .preview-viewport--gpu-driven-flags,
+  .preview-viewport--gpu-driven-visible-list,
+  .preview-viewport--gpu-driven-hiz,
+  .preview-viewport--gpu-driven-lod {
+    min-height: 1220px;
+  }
+
+  .gpu-driven-toggle-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gpu-driven-badge,
+  .gpu-driven-control,
+  .gpu-driven-label,
+  .gpu-driven-card,
+  .gpu-driven-legend {
+    border-radius: 18px;
+  }
+}
