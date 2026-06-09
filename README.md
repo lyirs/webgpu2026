@@ -1,6 +1,6 @@
 # WebGPU Study 2026
 
-一个 lesson-first 的 WebGPU 学习工作台：左侧是课程目录，中间是真实运行的 WebGPU 预览，右侧展示来自课程文件本身的 TypeScript / WGSL 核心源码片段。
+一个  WebGPU 学习集
 
 ## 技术栈
 
@@ -15,16 +15,6 @@ pnpm install
 pnpm dev
 pnpm build
 ```
-
-## 工作台布局
-
-- 左侧：课程路线图与完成状态
-- 中间：实时 WebGPU 预览与交互控件
-- 右侧：课程说明、源码 tab、折叠后的核心代码片段
-
-## 课程总览
-
-当前共 `149` 课。每一课都对应一个真实 runtime lesson，路由 hash 与 `src/lessons/lesson-XX-*` 目录编号保持一致。
 
 ### 01-39：WebGPU API 与管线基础
 
