@@ -1,15 +1,15 @@
 import type { LessonDefinition } from "@/studio/types";
-import { lessons01To26 } from "@/studio/lesson-registry/lessons-01-26";
-import { lessons27To45 } from "@/studio/lesson-registry/lessons-27-45";
-import { lessons46To64 } from "@/studio/lesson-registry/lessons-46-64";
-import { lessons65To79 } from "@/studio/lesson-registry/lessons-65-79";
-import { lessons80To89 } from "@/studio/lesson-registry/lessons-80-89";
+import { lessons1To51 } from "@/studio/lesson-registry/lessons-01-51";
+import { lessons52To80 } from "@/studio/lesson-registry/lessons-52-80";
+import { lessons81To106 } from "@/studio/lesson-registry/lessons-81-106";
+import { lessons107To128 } from "@/studio/lesson-registry/lessons-107-128";
+import { lessons129To149 } from "@/studio/lesson-registry/lessons-129-149";
 
 // Public lesson registry entrypoint. Keep this file small; per-batch metadata lives in src/studio/lesson-registry/.
 export const lessons: LessonDefinition[] = [
-  ...lessons01To26,
-  ...lessons27To45,
-  ...lessons46To64,
-  ...lessons65To79,
-  ...lessons80To89,
+  ...lessons1To51,
+  ...lessons52To80,
+  ...lessons81To106,
+  ...lessons107To128,
+  ...lessons129To149,
 ];
