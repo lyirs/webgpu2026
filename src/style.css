@@ -3,6 +3,7 @@
 @import "./styles/lessons/volume.css";
 @import "./styles/lessons/rendering.css";
 @import "./styles/lessons/webgpu-api.css";
+@import "./styles/lessons/update-lab.css";
 @import "./styles/studio/viewer.css";
 @import "./styles/lessons/post.css";
 @import "./styles/lessons/hdr-and-compute.css";

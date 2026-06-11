@@ -185,9 +185,17 @@ pnpm build
 | 148 | ReSTIR DI 与多光源直射光 | `148-restir-di-and-many-lights-direct-lighting` | current candidates / temporal reuse / spatial reuse / many-light direct illumination |
 | 149 | ReSTIR DI 的时域稳定化与入口级降噪 | `149-restir-di-temporal-stabilization-and-entry-denoising` | ReSTIR DI output / reprojected accumulation / history clamp / light animation stability |
 
+### Chrome WebGPU 更新
+
+| 更新编号 | 课程 | 路由 id | 核心知识点 |
+|---:|---|---|---|
+| U147-148 | Chrome 147-148 WebGPU Update Lab | `u147-148-chrome-webgpu-update-lab` | `linear_indexing` feature gate / `global_invocation_index` / `workgroup_index` / builtin index 与手写 flatten 对照 |
+
 ## 工程说明
 
 - 课程注册入口：`src/studio/lessons.ts`
 - 分段课程元数据：`src/studio/lesson-registry/`
+- Chrome WebGPU 更新元数据：`src/studio/update-registry/`
 - 课程 runtime：`src/lessons/lesson-XX-*`
+- 更新实验 runtime：`src/updates/update-u*-*`
 - 样式入口：`src/style.css`

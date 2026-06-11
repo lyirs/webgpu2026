@@ -26,6 +26,8 @@ export type LessonSourceSegment = {
 export type LessonDefinition = {
   id: string;
   order: number;
+  displayOrder?: string;
+  section?: "main" | "updates";
   title: string;
   tagline: string;
   goal: string;

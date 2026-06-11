@@ -1,4 +1,4 @@
-import { lessons } from "@/studio/lessons";
+import { courseItems, lessons } from "@/studio/lessons";
 import type {
   LessonDefinition,
   LessonSource,
@@ -291,7 +291,7 @@ function highlightCodeLine(line: string, language: string): string {
       '<span class="code-annotation">$&</span>'
     );
     text = text.replace(
-      /\b(?:struct|fn|let|var|override|return|if|else|for|loop|break|continue|switch|case|default|discard)\b/g,
+      /\b(?:requires|struct|fn|let|var|override|return|if|else|for|loop|break|continue|switch|case|default|discard)\b/g,
       '<span class="code-keyword">$&</span>'
     );
     text = text.replace(
@@ -345,6 +345,9 @@ function emphasizedLineClass(line: string, language: string): string {
     /layout:\s*"auto"/,
     /createPipelineLayout\(/,
     /wgslLanguageFeatures/,
+    /linear_indexing/,
+    /global_invocation_index/,
+    /workgroup_index/,
     /read_write/,
     /readback ring/i,
     /query availability/i,
@@ -883,7 +886,11 @@ function getLessonById(id: string | null): LessonDefinition {
     return defaultLesson ?? lessons[0];
   }
 
-  return lessons.find((lesson) => lesson.id === id) ?? defaultLesson ?? lessons[0];
+  return (
+    courseItems.find((lesson) => lesson.id === id) ??
+    defaultLesson ??
+    lessons[0]
+  );
 }
 
 /**
@@ -1090,23 +1097,38 @@ export function bootApp(root: HTMLElement) {
   };
 
   const renderLessonList = (activeLessonId: string) => {
-    const orderedLessons = [...lessons].sort((left, right) => left.order - right.order);
+    const sections = [
+      {
+        label: "课程主线",
+        items: [...lessons].sort((left, right) => left.order - right.order),
+      },
+      {
+        label: "Chrome WebGPU 更新",
+        items: courseItems
+          .filter((lesson) => lesson.section === "updates")
+          .sort((left, right) => left.order - right.order),
+      },
+    ].filter((section) => section.items.length > 0);
 
-    lessonList.innerHTML = orderedLessons
+    lessonList.innerHTML = sections
       .map(
-        (lesson) => `
+        (section) => `
+          <li class="lesson-list__section" aria-hidden="true">${section.label}</li>
+          ${section.items
+            .map(
+              (lesson) => `
           <li>
             <button
               class="lesson-link ${
                 lesson.id === activeLessonId ? "lesson-link--active" : ""
-              }"
+              } ${lesson.section === "updates" ? "lesson-link--update" : ""}"
               data-lesson-id="${lesson.id}"
               aria-current="${lesson.id === activeLessonId ? "true" : "false"}"
               type="button"
             >
-              <span class="lesson-link__order">${lesson.order
-                .toString()
-                .padStart(2, "0")}</span>
+              <span class="lesson-link__order">${
+                lesson.displayOrder ?? lesson.order.toString().padStart(2, "0")
+              }</span>
               <span class="lesson-link__body">
                 <strong>${lesson.title}</strong>
                 <span>${lesson.tagline}</span>
@@ -1116,6 +1138,9 @@ export function bootApp(root: HTMLElement) {
               }">${lessonStatusLabel(lesson.status)}</span>
             </button>
           </li>
+        `
+            )
+            .join("")}
         `
       )
       .join("");

@@ -175,6 +175,16 @@ button {
   gap: 12px;
 }
 
+.lesson-list__section {
+  margin: 10px 4px 0;
+  color: rgba(188, 205, 226, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .lesson-link,
 .source-tab {
   width: 100%;
@@ -213,6 +223,20 @@ button {
   border-color: rgba(255, 159, 104, 0.34);
 }
 
+.lesson-link--update {
+  border-color: rgba(92, 190, 255, 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(92, 190, 255, 0.12), transparent 34%),
+    rgba(8, 21, 38, 0.76);
+}
+
+.lesson-link--update.lesson-link--active {
+  border-color: rgba(92, 190, 255, 0.52);
+  background:
+    radial-gradient(circle at top left, rgba(92, 190, 255, 0.28), transparent 38%),
+    rgba(13, 38, 62, 0.88);
+}
+
 .lesson-link__order {
   display: inline-flex;
   align-items: center;
@@ -224,6 +248,11 @@ button {
   font-family: var(--font-mono);
   color: var(--accent-cool);
   grid-row: 1 / span 2;
+}
+
+.lesson-link--update .lesson-link__order {
+  color: #f9d98a;
+  background: rgba(251, 191, 36, 0.12);
 }
 
 .lesson-link__body {
