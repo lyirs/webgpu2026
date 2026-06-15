@@ -189,6 +189,7 @@ pnpm build
 
 | 更新编号 | 课程 | 路由 id | 核心知识点 |
 |---:|---|---|---|
+| U146 | Chrome 146 WebGPU Update Lab | `u146-chrome-webgpu-update-lab` | compatibility adapter / `TRANSIENT_ATTACHMENT` / `texture_and_sampler_let` / transient scratch target |
 | U147-148 | Chrome 147-148 WebGPU Update Lab | `u147-148-chrome-webgpu-update-lab` | `linear_indexing` feature gate / `global_invocation_index` / `workgroup_index` / builtin index 与手写 flatten 对照 |
 
 ## 工程说明

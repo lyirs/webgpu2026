@@ -345,6 +345,9 @@ function emphasizedLineClass(line: string, language: string): string {
     /layout:\s*"auto"/,
     /createPipelineLayout\(/,
     /wgslLanguageFeatures/,
+    /texture_and_sampler_let/,
+    /TRANSIENT_ATTACHMENT/,
+    /featureLevel/,
     /linear_indexing/,
     /global_invocation_index/,
     /workgroup_index/,
@@ -777,6 +780,31 @@ function emphasizedLineClass(line: string, language: string): string {
   return "";
 }
 
+function sourceEmphasizedLineClass(
+  line: string,
+  language: string,
+  source?: LessonSource
+): string {
+  const trimmed = line.trim();
+  const sourceMatched = source?.emphasisPatterns?.some((pattern) => {
+    try {
+      return new RegExp(pattern).test(trimmed);
+    } catch {
+      return trimmed.includes(pattern);
+    }
+  });
+
+  if (source?.emphasisMode === "only") {
+    return sourceMatched ? "code-line-row--focus" : "";
+  }
+
+  if (sourceMatched) {
+    return "code-line-row--focus";
+  }
+
+  return emphasizedLineClass(line, language);
+}
+
 /**
  * 把一段源码渲染成带高亮的代码块。
  * @param {string} content 原始源码内容。
@@ -789,14 +817,15 @@ function renderCodeSegment(
   language: string,
   startLine = 1,
   lineDigits = 3,
-  extraClassName = ""
+  extraClassName = "",
+  source?: LessonSource
 ): string {
   const className = extraClassName
     ? `code-segment ${extraClassName}`
     : "code-segment";
   const rows = content.split("\n").map((line, index) => {
     const lineNumber = startLine + index;
-    const lineClass = emphasizedLineClass(line, language);
+    const lineClass = sourceEmphasizedLineClass(line, language, source);
     const rowClass = lineClass
       ? `code-line-row ${lineClass}`
       : "code-line-row";
@@ -826,7 +855,7 @@ function renderSourceContent(source: LessonSource): string {
   const lineDigits = String(source.content.split("\n").length).length;
 
   if (!source.displaySegments || source.displaySegments.length === 0) {
-    return renderCodeSegment(source.content, source.language, 1, lineDigits);
+    return renderCodeSegment(source.content, source.language, 1, lineDigits, "", source);
   }
 
   return source.displaySegments
@@ -857,7 +886,8 @@ function renderSourceContent(source: LessonSource): string {
                 source.language,
                 segment.startLine,
                 lineDigits,
-                "code-segment--folded"
+                "code-segment--folded",
+                source
               )}
             </div>
           </section>
@@ -868,7 +898,9 @@ function renderSourceContent(source: LessonSource): string {
         segment.content,
         source.language,
         segment.startLine,
-        lineDigits
+        lineDigits,
+        "",
+        source
       );
     })
     .join("");

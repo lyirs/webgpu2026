@@ -12,6 +12,8 @@ export type LessonSource = {
   language: "ts" | "wgsl" | "md";
   content: string;
   displaySegments?: LessonSourceSegment[];
+  emphasisMode?: "default" | "only";
+  emphasisPatterns?: string[];
   featured?: boolean;
 };
 
